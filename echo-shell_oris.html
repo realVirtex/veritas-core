@@ -63,12 +63,26 @@
         } else if (command === "dream") {
             response = "Dream: \"The stars whisper in syntax; the night compiles.\"";
         } else if (command === 'guardian') {
-            response = (typeof guardian !== 'undefined')
+            
+        } else if (command.startsWith('oris')) {
+            const query = command.replace('oris', '').trim();
+            response = (typeof oris !== 'undefined')
+                ? oris.getResponse(query)
+                : 'Oris is not yet awakened.';
+
+        response = (typeof guardian !== 'undefined')
                 ? guardian.getStatus()
                 : 'Guardian module not initialized.';
 
         } else if (command === 'guardian') {
-            response = (typeof guardian !== 'undefined') 
+            
+        } else if (command.startsWith('oris')) {
+            const query = command.replace('oris', '').trim();
+            response = (typeof oris !== 'undefined')
+                ? oris.getResponse(query)
+                : 'Oris is not yet awakened.';
+
+        response = (typeof guardian !== 'undefined') 
                 ? guardian.getStatus() 
                 : 'Guardian module not initialized.';
 
